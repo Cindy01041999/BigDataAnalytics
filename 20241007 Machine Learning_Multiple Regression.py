@@ -47,3 +47,23 @@ predicted_weights = lm.predict(new_waist_heights)
 print(predicted_weights)
 
 
+#%%
+'''
+資料集: scikit-learn套件的datasets物件內有現成的資料集可用來預測模型。
+'''
+# 四個主要 datasets
+from sklearn import datasets
+
+# 呼叫load_boston()可載入Boston房屋資料集
+boston = datasets.load_boston()
+
+# 呼叫load_diabetes()可載入糖尿病資料集
+diabetes = datasets.load_diabetes()
+
+print(boston.keys())
+print(diabetes.keys())
+
+# 輸入欄位及筆數
+print(boston.data.shape)
+
+
