@@ -79,6 +79,63 @@ print('訓練資料的R-squared:', lm.score(xTrain, yTrain))
 print('測試資料的R-squared:', lm.score(xTest, yTest))
 
 
+#%%
+# 將之前預測模型預測房價的範例，加入新增計算MSE和R-squared的程式碼
+import pandas as pd
+import numpy as np
+from sklearn import datasets
+from sklearn.linear_model import LinearRegression
+
+california = datasets.fetch_california_housing()
+
+x = pd.DataFrame(california.data, columns=california.feature_names)
+target = pd.DataFrame(california.target, columns=['MEDV'])
+y = target['MEDV']
+
+lm = LinearRegression()
+lm.fit(x, y)
+
+predicted_price = lm.predict(x)
+print(predicted_price[0:5]) # 列出前5個
+
+MSE = np.mean((y - predicted_price)**2)
+print('MSE:', MSE)
+print('R-squared:', lm.score(x, y))
 
 
+#%%
+'''
+匯出殘差圖的散佈圖
+hlines()函數可在y=0繪出一條水平線，偏離水平線較遠的點就是異常點(Outlier)
+'''
+import pandas as pd
+from sklearn import datasets
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+
+california = datasets.fetch_california_housing()
+
+# 建立DataFrame物件
+x = pd.DataFrame(california.data, columns=california.feature_names)
+target = pd.DataFrame(california.target, columns=['MEDV'])
+y = target['MEDV']
+
+# 訓練模型
+xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.33, random_state=5)
+lm = LinearRegression()
+lm.fit(xTrain, yTrain)
+
+# 使用predict()函數預測
+pred_train = lm.predict(xTrain)
+pred_test = lm.predict(xTest)
+
+# 繪圖
+plt.scatter(pred_train, yTrain - pred_train, c='b', s=40, alpha=0.5, label='Training Data')  # c=color, s=size
+plt.scatter(pred_test, yTest - pred_test, c='r', s=40, label='Test Data')
+plt.hlines(y=0, xmin=-5, xmax=10)  # 畫y=0的水平線, x=-5~10
+plt.title('Residual Plot')
+plt.ylabel('Residual Value')
+plt.legend()
+plt.show()
 
