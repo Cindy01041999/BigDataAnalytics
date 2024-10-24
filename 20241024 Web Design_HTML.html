@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  Hello world
+  <script src="script.js"></script>
+
+  <br/>
+  <!--加入圖片檔-->
+  <img src='1024practice/pic1.jpg' width='120%' height='120%'>
+
+  <br/>
+  <!--加入video-->
+  <video controls>
+    <source src='1024practice/video.mp4'>
+  </video>
+
+  <br/>
+  <!--加入audio-->
+  <audio controls>
+    <source src='1024practice/audio.mp3'>
+  </audio>
+
+  <br/>
+  <!--嵌入YouTube影片-->
+  <iframe width='560' height='315'
+    src='https//www.youtube.com/embed/t_yAO7Kzrxw'
+    frameborder='0'
+    allow='autoplay;encrypted-media'
+    allowfullscreen>
+  </iframe>
+
+  <br/>
+  <!--表格1-->
+  <table border='1'>
+    <tr>
+      <th>編號</th>
+      <th>品名</th>
+      <th>單價</th>
+      <th>數量</th>
+    </tr>
+    <tr>
+      <td>A1</td>
+      <td>火影忍者</td>
+      <td>1250</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <td>A2</td>
+      <td>人中之龍</td>
+      <td>1950</td>
+      <td>300</td>
+    </tr>
+  </table>
+
+  <br/>
+  <!--表格2-->
+  <table border='1'>
+    <tr>
+      <th bgcolor='#ABDFFE'>套餐</th>
+      <td>A餐</td>
+      <td>B餐</td>
+      <td>C餐</td>
+    </tr>
+    <tr>
+      <th bgcolor='#ABDFFE'>主菜</th>
+      <td>雞腿</td>
+      <td>鴨腿</td>
+      <td>燒肉</td>
+    </tr>
+    <tr>
+      <th bgcolor='#ABDFFE'>飲料</th>
+      <td align='center' rowspan='2'>選購</td>
+      <td align='center' colspan='2'>可樂</td>
+    </tr>
+    <tr>
+      <th bgcolor='#ABDFFE'>湯品</th>
+      <td>貢丸湯</td>
+      <td>豆腐湯</td>
+    </tr>
+  </table>
+
+  <br/>
+  <!--輸入帳號密碼1-->
+  <form method='post' autocomplete='off'>
+    帳號:<input type='text' name='txtUid' id='txtUid'/><br/>
+    密碼:<input type='password' name='txtPwd' id='txtPwd'/><br/>
+    姓名:<input type='text' name='txtName' id='txtName' value='王小明'/><br/>
+    <input type='hidden' name='txtBirthday' id='txtBirthday' value='67/03/14'/><br/>
+  </form>
+
+  <br/>
+  <!--輸入帳號密碼2-->
+  <script>
+    function fnHelp(){
+      alert('跟著實務學習跨平台網頁設計'); //顯示網頁訊息視窗
+    }
+  </script>
+  
+  <form method='post' action='Home/Login' autocomplete="off">
+    帳號:<input type='text' name='txtUid' id='txtUid' value='Jasper'/><br/>
+    密碼:<input type='password' name='txtPwd' id='txtPwd'/><br/>
+    <input type='submit' value='提交'/>
+    <input type='reset' value='重設'/>
+    <input type='button' value='說明' onclick='fnHelp();'/>
+  </form>
+
+  <br/>
+  <!--輸入電子信箱/網址/電話/搜尋/顏色-->
+  <form>
+    信箱:<input type='email' name='txtEmail'/><br/>
+    官網:<input type='url' name='txtUrl'/><br/>
+    電話:<input type='tel' name='txtTel' pattern='[0][9][0-9]{8}'/><br/>
+    搜尋:<input type='search' name='txtSearch'/><br/>
+    顏色:<input type='color' name='txtColor'/><br/>
+    <input type='submit' value='提交'/>
+  </form>
+
+  <br/>
+  <!--日期/時間欄位-->
+  <form>
+    日期:<input type='date' name='txtDate'/><br/>
+    時間:<input type='time' name='txtTime'/><br/>
+    月份:<input type='month' name='txtMonth'/><br/>
+    週次:<input type='week' name='txtWeek'/><br/>
+    本地日期與時間:<input type='datetime-local' name='txtDateTime'/><br/>
+  </form>
+
+  <br/>
+  <!--檔案上傳欄位-->
+  <form enctype='multipart/form-data' method='post'
+    accept='image/gif,image/jpeg' action='Home/Upload'>
+    請選擇檔案<input type='file' name='txtFile'/><br/>
+    <input type='submit' value='檔案上傳'/>
+  </form>
+
+  <br/>
+  <!--表單欄位外框-->
+  <form>
+    <fieldset>
+      <legend>個人資料</legend>
+      姓名:<input type='text' name='txtName'><br>
+      信箱:<input type='email' name='txtMail'>
+    </fieldset>
+    <fieldset>
+      <legend>興趣</legend>
+      <input type='checkbox' name='chk' value='籃球'>籃球
+      <input type='checkbox' name='chk' value='電影'>電影
+      <input type='checkbox' name='chk' value='購物'>購物
+    </fieldset>
+    <p>
+      <input type='submit' value='註冊'>
+      <input type='reset' value='重設'>
+    </p>
+</body>
+
+</html>
